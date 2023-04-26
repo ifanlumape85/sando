@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Nunito_Sans">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/public/Nunito_Sans.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
