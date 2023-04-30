@@ -10,7 +10,15 @@ class KelurahanController extends Controller
 {
     public function index(Request $request)
     {
-        $items = Kelurahan::where(function ($query) use ($request) {
+        $items = Kelurahan::selectRaw('
+            kelurahan.id,
+            kelurahan.id_kecamatan,
+            kelurahan.nama,
+            kelurahan.slug,
+            kelurahan.created_at,
+            kelurahan.updated_at,
+            (SELECT COUNT(pemilih.id) FROM pemilih WHERE pemilih.id_kelurahan=kelurahan.id) as jumlah_pemilih
+        ')->where(function ($query) use ($request) {
             return $request->input('query') ?
                 $query->where('nama', 'like', '%' . $request->input('query') . '%') : '';
         })->orderBy('id', 'desc')

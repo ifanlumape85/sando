@@ -19,4 +19,11 @@ class Kecamatan extends Model
     {
         return $this->belongsTo(Kabupaten::class, 'id_kabupaten', 'id');
     }
+
+    public function jumlahPemilih()
+    {
+        $item = Pemilih::join('kelurahan', 'pemilih.id_kelurahan', 'kelurahan.id')
+            ->where('kelurahan.id_kecamatan', $this->id)->count();
+        return $item;
+    }
 }

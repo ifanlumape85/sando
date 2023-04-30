@@ -28,7 +28,7 @@ class UserRequest extends FormRequest
             'email' => 'sometimes|email|unique:users,email',
             'password' => 'sometimes|string|min:8',
             'roles' => 'required',
-            'id_puskesmas' => 'required|array'
+            'id_tps' => 'required|array'
         ];
     }
 }
