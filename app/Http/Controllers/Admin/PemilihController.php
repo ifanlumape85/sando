@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PemilihRequest;
 use App\Models\Pemilih;
 use App\Models\Propinsi;
+use App\Models\Tps;
 use App\Models\Waktu;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -60,7 +61,8 @@ class PemilihController extends Controller
     {
         $item = new Pemilih();
         $propinsis = Propinsi::all();
-        return view('pages.pemilih.create', compact('item', 'propinsis'));
+        $tpss = Tps::all();
+        return view('pages.pemilih.create', compact('item', 'propinsis', 'tpss'));
     }
 
     /**
@@ -104,7 +106,8 @@ class PemilihController extends Controller
     {
         $item = Pemilih::findOrFail($id);
         $propinsis = Propinsi::all();
-        return view('pages.pemilih.edit', compact('item', 'propinsis'));
+        $tpss = Tps::all();
+        return view('pages.pemilih.edit', compact('item', 'propinsis', 'tpss'));
     }
 
     /**
