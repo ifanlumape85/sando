@@ -25,6 +25,7 @@ class PemilihRequest extends FormRequest
     {
         return [
             'id_tps' => 'required|integer|exists:tps,id',
+            'id_kelurahan' => 'required|integer|exists:kelurahan,id',
             'nik' => 'required|string|max:255',
             'nama' => 'required|string|max:255',
             'jk' => 'required',
