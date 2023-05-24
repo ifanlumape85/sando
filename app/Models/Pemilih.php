@@ -11,7 +11,7 @@ class Pemilih extends Model
     protected $table = 'pemilih';
 
     protected $fillable = [
-        'id_tps', 'alamat', 'nik', 'nama', 'jk', 'tgl_lahir', 'photo'
+        'id_tps', 'alamat', 'nik', 'nama', 'jk', 'tgl_lahir', 'photo', 'id_kelurahan'
     ];
 
     protected $hidden = [];
