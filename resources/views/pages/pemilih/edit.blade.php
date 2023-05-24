@@ -65,6 +65,18 @@
             });
         }
 
+        if (id_kelurahan != null) {
+            $.ajax({
+                url: '/admin/tps/get_list_tps/' + id_kelurahan,
+                type: "GET",
+                dataType: "text",
+                success: function(response) {
+                    $("[name=id_tps]").html(response);
+                    $("[name=id_tps]").val(id_tps);
+                }
+            });
+        }
+
         $(document).on('change', '[name=id_propinsi]', function() {
             var val = $(this).val();
 
@@ -96,20 +108,24 @@
             var val = $(this).val();
 
             $.ajax({
-                url: '/admin/tps/get_list_tps/' + val,
-                type: "GET",
-                dataType: "text",
-                success: function(response) {
-                    $("[name=id_tps]").html(response);
-                }
-            });
-
-            $.ajax({
                 url: '/admin/kelurahan/get_list_kelurahan/' + val,
                 type: "GET",
                 dataType: "text",
                 success: function(response) {
                     $("[name=id_kelurahan]").html(response);
+                }
+            });
+        });
+
+        $(document).on('change', '[name=id_kelurahan]', function() {
+            var val = $(this).val();
+
+            $.ajax({
+                url: '/admin/tps/get_list_tps/' + val,
+                type: "GET",
+                dataType: "text",
+                success: function(response) {
+                    $("[name=id_tps]").html(response);
                 }
             });
         });

@@ -40,10 +40,7 @@
     <div class="form-group">
         <label for="id_tps">TPS</label>
         <select class="form-control select2" name="id_tps" style="width: 100%;">
-            <option value="" selected disabled>Pilih satu</option>
-            @foreach($tpss as $tps)
-            <option @if($item->id_tps == $tps->id || old('id_tps') == $tps->id) selected @endif value="{{ $tps->id }}">{{ $tps->nama }}</option>
-            @endforeach
+            
         </select>
     </div>
     <div class="form-group">

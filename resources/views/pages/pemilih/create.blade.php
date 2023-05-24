@@ -60,6 +60,19 @@
                 }
             });
         });
+
+        $(document).on('change', '[name=id_kelurahan]', function() {
+            var val = $(this).val();
+
+            $.ajax({
+                url: '/admin/tps/get_list_tps/' + val,
+                type: "GET",
+                dataType: "text",
+                success: function(response) {
+                    $("[name=id_tps]").html(response);
+                }
+            });
+        });
     });
 </script>
 @endpush
