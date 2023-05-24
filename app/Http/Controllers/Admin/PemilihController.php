@@ -36,8 +36,8 @@ class PemilihController extends Controller
     public function getData()
     {
         $items = Pemilih::select(['pemilih.id', 'pemilih.created_at', 'pemilih.nama', 'tps.nama as tps', 'kelurahan.nama as kelurahan'])
-            ->join('tps', 'pemilih.id_tps', '=', 'tps.id')
-            ->join('kelurahan', 'pemilih.id_kelurahan', '=', 'kelurahan.id')
+            ->leftJoin('tps', 'pemilih.id_tps', '=', 'tps.id')
+            ->leftJoin('kelurahan', 'pemilih.id_kelurahan', '=', 'kelurahan.id')
             ->orderBy('pemilih.id', 'desc');
 
         return DataTables::of($items)
